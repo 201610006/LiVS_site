@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <!-- Support for mobile touch devices -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- CSS -->
+  <link href="css/mystyle.css" rel="stylesheet">
+	<script src="js/jquery.js"></script>
+	<script src="js/dataloader.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+
+	loadStudy()
+
+	});
+	</script>
+</head>
+
+<body>
+<div id="headwrap">
+	<div class="container">
+		<div style="float:left;width:50px;height:50px;">
+			<img height="50px" style="margin-top:0px;" src="img/thl.png"/>
+			
+		</div>
+		<div style="float:left;width:50px;height:50px;text-align:center;line-height:25px;font-family:Century"><span>TaiHe Hospital</span></div>
+		<div style="float:left;width:550px;height:50px;line-height:50px;font-size:25pt;color:#fff">Liver vessel segmentation 
+		<span style="font-style:italic;color:#dedede"><a href="#">dataset</a></span></div>
+	
+	</div>
+
+</div>
+<div id="infowrap">
+	<div class="info">
+		<div style="text-align:left;margin:10px;"><span style="height:50px;font-size:25pt;color:#fff">LiVS</span></div>
+		<div  style="width:100%;height:240px;">
+		<div style="float:left;width:30%">
+		<p style="text-align:left;font-size:13pt;color:#e8e8e8">
+		Liver vessel segmentation is to pinpoint out the composing pixels of vessels from a medical image generated
+by computed tomography (CT), magnetic resonance imaging(MRI), computed tomography angiography (CTA), etc; see
+the follow figure. This task has increasingly importance in diagnosis
+formulating, surgical planning and radiotherapy.
+		</p>
+		</div>
+		<div style="float:left;width:70%">
+			<img width="90%" style="margin-top:0px;" src="img/3d.png"/>
+		</div>
+		</div>
+		<div style="margin-top:25px;width:100%;height:140px;">
+		<p style="text-align:left;font-size:13pt;color:#e8e8e8">
+		LiVS is a fine-grained hepatic vascular dataset constructed by Dr.Zhao Liang's team.
+		This dataset has a large number of volumes and high-quality masks. 
+		The LiVS is composed of 325 volumes and 9,983 CT slices, and each volume retrieves approximately 30 slices. 
+		The vessels of each slice are delineated by three senior medical imaging experts and the final mask is their majority voting. 
+		Due to the pretty small size of vessels, the delineation of each vessel can be oscillating a lot easily. 
+		To handle this problem, the coincidence of each vessel among the three masks is calculated. 
+		In case the majority voting over any mask is smaller than 0.5, 
+		the vessel is highlighted and sent back to the three experts for further refinement. 
+		This procedure repeats until no inconsistence exists.
+		</p>
+		</div>
+		<div style="margin-top:25px;width:100%;height:120px;">
+		<p style="text-align:left;font-size:13pt;color:#e8e8e8">
+		Each folder holds one patient's information, 
+		the 325 folders correspond to 325 different patients, 
+		which can be downloaded individually or conjointly. 
+		The table below provides information on the image, 
+		such as liver size (width, depth, height) . 
+		These folders are called “Case-number” (the number varying between 0 and 324). 
+		Each “Case-number” folder contains 3 sub-folders called “dcms_”, “livs_” and “labs_”. 
+		These folders respectively contain the anonymized patient CT image in DICOM format, 
+		the corresponding liver image in .nii format, the labelled image corresponding to the liver vessels in .nii format.
+		</p>
+		</div>
+		<div style="width:100%;height:200px;margin-top:20px;">
+		<div style="text-align:left;color:#fff">Description of the LiVS:</div>
+			<table class="col-md-12 table table-striped" id="studyListData">
+              <thead>
+                <tr>
+                  <th>See</th>
+                  <th>Cases</th>
+                  <th>Sex</th>
+                  <th>Age</th>
+                  <th>StudyDate</th>
+                  <th>SliceThickness(mm)</th>
+                  <th>ImageSize(pixels)</th>
+                  <th>LiverDensity</th>
+				  <th>Spaces</th>
+                  <th>Description</th>
+                  <th>Download</th>
+                </tr>
+              </thead>
+              
+              <tbody id="studyListData">
+              	<tr>
+				<td><img width="90%" style="margin-top:0px;" src="img/labs/case_0.png"/></td>
+				<td>case_0</td>
+				<td>O</td>
+				<td>060Y</td>
+				<td>20130829</td>
+				<td>0.625</td>
+				<td>512x512</td>
+				<td>30</td>
+				<td>0.703125</td>
+				<td>abd</td>
+				<td><a href="./dataset/case_0"​>文件下载</a></td>
+				</tr>
+				<tr>
+				<td><img width="90%" style="margin-top:0px;"  src="img/labs/case_1.png"/></td>
+				<td>case_1</td>
+				<td>O</td>
+				<td>060Y</td>
+				<td>20130829</td>
+				<td>0.625</td>
+				<td>512x512</td>
+				<td>30</td>
+				<td>0.703125</td>
+				<td>abd</td>
+				<td><a href="https://github.com/201610006/vesselsets/"​>文件下载</a></td>
+				</tr>
+                <!-- Table rows get populated from the JSON studyList manifest -->
+              </tbody>
+            </table>
+		</div>
+		
+            <div id="pagerows" style="width:100%;height:65px;text-align:right">
+			
+				<a href="javascript:void(0);" onclick="getpagedata('first')" class="link_button_Edit">First</a>&nbsp;
+				<a href="javascript:void(0);" onclick="getpagedata('previous')" class="link_button_Edit"><span class="glyphicon glyphicon-chevron-left"></span></a>&nbsp;
+				<a href="javascript:void(0);" onclick="getpagedata('next')" class="link_button_Edit"><span class="glyphicon glyphicon-chevron-right"></span></a>&nbsp;
+				<a href="javascript:void(0);" onclick="getpagedata('last')" class="link_button_Edit">Last</a>&nbsp;
+
+			</div>
+	</div>
+</div>
+<script src="css/bootstrap.min.js"></script>
+
+</body>
+</html>
