@@ -14,8 +14,8 @@ $.getJSON("https://201610006.github.io/LiVS_site/dataset/dataset.json", function
 			study.size + '</td><td>' +
 			study.density + '</td><td>' +
 			study.space + '</td><td>' +
-			study.description + '</td><td>' +
-			"Download" + '</td>' +
+			study.description + '</td><td><a href=' + study.url + '>'+
+			"Download" + '</a></td>' +
 			'</tr>';
 
 		// Append the row to the study list
