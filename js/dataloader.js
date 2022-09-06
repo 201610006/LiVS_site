@@ -1,7 +1,7 @@
 function loadStudy() {
 	
 $.getJSON("https://201610006.github.io/LiVS_site/dataset/dataset.json", function(data) {
-
+                console.log("==="+data)
 		data.livs.forEach(function(study) {
 			var studyRow = '<tr><td>' +
 			study.name + '</td><td>' +
