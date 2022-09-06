@@ -4,7 +4,7 @@ var list_num = 0
 $("#studyListData tr").remove();
 $.ajaxSettings.async = false;
 $.getJSON("https://201610006.github.io/LiVS_site/dataset/dataset.json", function(data) {
-                console.log("==="+data)
+                console.log("==="+start+",==="+num)
 		data.livs.forEach(function(study) {
 			var imgnum = 'img/labs/case_' + Math.floor(Math.random()*20+60) + '.png'
 			var studyRow = "<tr><td><img width='25px' style='margin-top:0px;' src="+imgnum+" />" +
@@ -20,13 +20,13 @@ $.getJSON("https://201610006.github.io/LiVS_site/dataset/dataset.json", function
 			study.description + '</td>' +
 			'</tr>';
 
-		        list_num = list_num + 1
-			if (list_num > num)
+		        
+			if (list_num > num-1)
 				return
 			if (ct>=start){
 				// Append the row to the study list
 				var studyRowElement = $(studyRow).appendTo('#studyListData');
-				
+				list_num = list_num + 1
 			}
 			ct = ct + 1
 		})
