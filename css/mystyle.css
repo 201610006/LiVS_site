@@ -1,0 +1,106 @@
+@charset "utf-8";
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    color: #888888;
+    background-color: #060606;
+	font-family:"Times New Roman"
+}
+
+#headwrap {
+    margin-top:5px;
+	width:100%;
+	height:50px;
+}
+
+#infowrap {
+    margin-top:5px;
+	width:100%;
+	height:100%;
+}
+
+.container{
+	width:1000px;
+	height:50px;
+	text-align:center;
+	margin:auto;
+	border-bottom:2px solid #dedede;
+}
+
+.info{
+	width:920px;
+	height:50px;
+	text-align:center;
+	margin:auto;
+	
+}
+
+a:link{
+	color:#fff;
+	text-decoration:none
+}
+
+a:hover{
+	color:blue;
+	text-decoration:none
+}
+
+table,td{
+	border:1px solid #ababab
+}
+
+th{
+	color:#000;
+	border:1px solid #ababab
+}
+
+tr:nth-child(odd){
+	background-color:#e8e8e8
+}
+
+tr:nth-child(even){
+	background-color:#d8d8d8
+}
+tr:hover{
+	background-color:#787878
+}
+@font-face {
+font-family: 'Glyphicons Halflings';
+src: url('../fonts/glyphicons-halflings-regular.eot');
+src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.glyphicon-asterisk:before {
+    content: "\2a";
+}
+
+.link_button_Edit {
+            border-radius: 4px;
+            border: solid 1px #20538D;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+            background: #4479BA;
+            color: #FFF;
+            padding: 4px 10px;
+        }
+ 
+        .link_button_Edit:hover {
+            background: #9Bc;
+            color: #000;
+        }
