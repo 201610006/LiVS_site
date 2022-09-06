@@ -1,8 +1,6 @@
-
-
 function loadStudy() {
 	
-$.getJSON("../dataset/dataset.json", function(data) {
+$.getJSON("dataset/dataset.json", function(data) {
 		data.livs.forEach(function(study) {
 			var studyRow = '<tr><td>' +
 			study.name + '</td><td>' +
