@@ -1,6 +1,8 @@
 function loadStudy(start, num) {
 var ct = 0	
-var list_num = 0	
+var list_num = 0
+$("#studyListData tr").remove();
+$.ajaxSettings.async = false;
 $.getJSON("https://201610006.github.io/LiVS_site/dataset/dataset.json", function(data) {
                 console.log("==="+data)
 		data.livs.forEach(function(study) {
@@ -45,7 +47,7 @@ function getpagedata(tb){
 	if(tb=='last')
 		page = pages;
 
-	$("#studyListData tr").remove();
+	
 	loadStudy((page-1)*5, 5)
 	$('#page').text(page);
 	
