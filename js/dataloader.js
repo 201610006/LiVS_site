@@ -21,7 +21,7 @@ $.getJSON("https://201610006.github.io/LiVS_site/dataset/dataset.json", function
 		        list_num = list_num + 1
 			if (list_num > num)
 				return
-			if (ct>=strat){
+			if (ct>=start){
 				// Append the row to the study list
 				var studyRowElement = $(studyRow).appendTo('#studyListData');
 				
