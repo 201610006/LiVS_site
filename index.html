@@ -13,7 +13,27 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 
-	loadStudy()
+	loadStudy(0,5)
+
+		$("#searchid").bind('keydown', function (e) {
+			var key = e.which;
+			if (key == 13) {
+				a = $("#searchid").val();
+				if(isNaN(Number(a,10))){
+
+					alert("请输入0-324的整数！");
+
+				}
+
+				else{
+					if (parseInt(a)<325){
+						loadStudy(parseInt(a), 1);
+						
+					}
+
+				}
+			}
+		})
 
 	});
 	</script>
@@ -73,10 +93,14 @@ formulating, surgical planning and radiotherapy.
 		Each “Case-number” folder contains 3 sub-folders called “dcms_”, “livs_” and “labs_”. 
 		These folders respectively contain the anonymized patient CT image in DICOM format, 
 		the corresponding liver image in .nii format, the labelled image corresponding to the liver vessels in .nii format.
-		</p>
+		You can click <a href='https://ieee-dataport.org/documents/liver-vessel-segmentation'>here</a> to download.
+			</p>
 		</div>
-		<div style="width:100%;height:200px;margin-top:20px;">
-		<div style="text-align:left;color:#fff">Description of the LiVS:</div>
+		<div style="width:100%;height:200px;margin-top:40px;">
+		<div style="text-align:left;font-size:12pt;color:#fff;height:30px;float:left">Description of the LiVS:</div>
+		<div style="text-align:left;font-size:12pt;color:#fff;height:30px;float:right">
+		Jump To: <input id="searchid" type="text" value="0~324" onfocus="submitfocus();" onblur="submitblur();" oninput = "value=value.replace(/[^\d]/g,'')" style="width:80px;height:25px;font-size:10pt;color:#000"/>
+		</div>
 			<table class="col-md-12 table table-striped" id="studyListData">
               <thead>
                 <tr>
@@ -95,7 +119,7 @@ formulating, surgical planning and radiotherapy.
               </thead>
               
               <tbody id="studyListData">
-              	<tr>
+              	<!-- <tr>
 				<td><img width="90%" style="margin-top:0px;" src="img/labs/case_60.png"/></td>
 				<td>case_0</td>
 				<td>O</td>
@@ -121,13 +145,13 @@ formulating, surgical planning and radiotherapy.
 				<td>abd</td>
 				<td><a href="https://github.com/201610006/vesselsets/">Download</a></td>
 				</tr>
-                <!-- Table rows get populated from the JSON studyList manifest -->
+                Table rows get populated from the JSON studyList manifest -->
               </tbody>
             </table>
 		</div>
 		
             <div id="pagerows" style="width:100%;height:65px;text-align:right">
-			
+			<span id="page" style="color:yellow;display:none">0</span>
 				<a href="javascript:void(0);" onclick="getpagedata('first')" class="link_button_Edit">First</a>&nbsp;
 				<a href="javascript:void(0);" onclick="getpagedata('previous')" class="link_button_Edit"><span class="glyphicon glyphicon-chevron-left"></span></a>&nbsp;
 				<a href="javascript:void(0);" onclick="getpagedata('next')" class="link_button_Edit"><span class="glyphicon glyphicon-chevron-right"></span></a>&nbsp;
@@ -137,6 +161,25 @@ formulating, surgical planning and radiotherapy.
 	</div>
 </div>
 <script src="css/bootstrap.min.js"></script>
+<script type="text/javascript">
+	var defaultVal = "0~324"; 
+	function submitfocus(){
+	 var seqNo = $("#searchid").val();
 
+	 if($.trim(seqNo) == defaultVal){
+		$("#searchid").val("");
+	 }
+	 }
+
+	function submitblur(){
+	 var seqNo = $("#searchid").val();
+	 if($.trim(seqNo) == ""){
+		$("#searchid").val(defaultVal);
+	 }
+	 }
+	 
+
+
+</script>
 </body>
 </html>
