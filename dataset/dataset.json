@@ -531,6 +531,7 @@
  {'name': 'case_527', 'sex': 'O', 'age': '059Y', 'StudyDate': '20190614', 'SliceThickness': '1.25', 'size': '512x512', 'density': '30', 'space': '0.802734', 'description': 'a', 'url': 'http://'},
  {'name': 'case_528', 'sex': 'O', 'age': '055Y', 'StudyDate': '20180129', 'SliceThickness': '0.625', 'size': '512x512', 'density': '30', 'space': '0.730469', 'description': 'che+abd', 'url': 'http://'},
  {'name': 'case_529', 'sex': 'O', 'age': '066Y', 'StudyDate': '20180512', 'SliceThickness': '1.25', 'size': '512x512', 'density': '30', 'space': '0.775391', 'description': 'abd', 'url': 'http://'},
- {'name': 'case_530', 'sex': 'O', 'age': '060Y', 'StudyDate': '20180914', 'SliceThickness': '1.25', 'size': '512x512', 'density': '32', 'space': '0.742188', 'description': 'abd', 'url': 'http://'}
+ {'name': 'case_530', 'sex': 'O', 'age': '060Y', 'StudyDate': '20180914', 'SliceThickness': '1.25', 'size': '512x512', 'density': '32', 'space': '0.742188', 'description': 'abd', 'url': 'http://'},
+ {'name': 'case_531', 'sex': 'O', 'age': '068Y', 'StudyDate': '20181021', 'SliceThickness': '1.25', 'size': '512x512', 'density': '30', 'space': '0.734375', 'description': 'chest+abd', 'url': 'http://'}
 ]
 }
