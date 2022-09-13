@@ -35,7 +35,7 @@ $.getJSON("https://201610006.github.io/LiVS_site/dataset/dataset.json", function
 function getpagedata(tb){
 
 	var page = $('#page').text();
-	var pages = 65
+	var pages = 107
 	if(tb=='first')
 		page = 1;
 	if(tb=='previous'&&parseInt(page)>1){
